@@ -2,8 +2,8 @@ SimpleWorkerRailsExample::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   SimpleWorker.configure do |config|
-    config.access_key = 'cb62f2ad2c877138f23c88a43fcd635a'
-    config.secret_key = 'f890c24de7e909720e08d0b24756dc9d'
+    config.access_key = ENV['SIMPLEWORKER_ACCESS_KEY']
+    config.secret_key = ENV['SIMPLEWORKER_SECRET_KEY']
 end
 
   # In the development environment your application's code is reloaded on
