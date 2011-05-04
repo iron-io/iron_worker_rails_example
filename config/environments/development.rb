@@ -1,11 +1,6 @@
 SimpleWorkerRailsExample::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
-  SimpleWorker.configure do |config|
-    config.access_key = ENV['SIMPLEWORKER_ACCESS_KEY']
-    config.secret_key = ENV['SIMPLEWORKER_SECRET_KEY']
-end
-
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development
   # since you don't have to restart the webserver when you make code changes.
