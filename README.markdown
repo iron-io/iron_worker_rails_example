@@ -18,7 +18,7 @@ These are used in application.rb to configure SimpleWorker.
 
 ## SimpleWorker Keys
 
-Get your keys at [[http://www.simpleworker.com]]
+Get your keys at http://www.simpleworker.com
 
 ## Database
 
