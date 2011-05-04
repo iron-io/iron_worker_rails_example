@@ -16,6 +16,10 @@ GMAIL_PASS
 
 These are used in application.rb to configure SimpleWorker.
 
+## SimpleWorker Keys
+
+Get your keys at [[http://www.simpleworker.com]]
+
 ## Database
 
 If you want to setup a quick, free cloud database to try this out, check out [Xeround](http://xeround.com/). 
