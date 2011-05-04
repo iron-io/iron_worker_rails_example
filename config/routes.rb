@@ -1,4 +1,10 @@
 SimpleWorkerRailsExample::Application.routes.draw do
+  resources :posts do
+    member do
+      post 'email'
+    end
+  end
+
   get "home/index"
 
   # The priority is based upon order of creation:
