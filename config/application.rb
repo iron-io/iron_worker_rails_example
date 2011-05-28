@@ -17,6 +17,8 @@ module SimpleWorkerRailsExample
       config.secret_key = ENV['SIMPLEWORKER_SECRET_KEY']
     end
 
+    SimpleWorker.logger.level = Logger::DEBUG
+
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
         :address => "smtp.gmail.com",
