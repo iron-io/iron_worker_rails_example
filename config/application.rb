@@ -12,12 +12,12 @@ module SimpleWorkerRailsExample
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    SimpleWorker.logger.level = Logger::DEBUG
+
     SimpleWorker.configure do |config|
       config.access_key = ENV['SIMPLEWORKER_ACCESS_KEY']
       config.secret_key = ENV['SIMPLEWORKER_SECRET_KEY']
     end
-
-    SimpleWorker.logger.level = Logger::DEBUG
 
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
