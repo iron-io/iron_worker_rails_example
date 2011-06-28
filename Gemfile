@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
 
 #gem 'rack', '~>2' # temporary, 3 is broken
+#gem 'rake', '~>0.8'
 
-gem 'rails', '3.0.8'
+gem 'rails', '3.0.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -10,12 +11,12 @@ gem 'rails', '3.0.8'
 #gem 'sqlite3'
 gem 'mysql2', '< 0.3'
 
+gem 'jquery-rails'
 gem 'simple_worker'
 gem 'mini_fb'
 gem 'eventmachine'
 gem 'active_sanity'
-gem 'acts-as-taggable-on'
-gem 'aws-s3', :require => 'aws/s3'
+#gem 'acts-as-taggable-on'gem 'aws-s3', :require => 'aws/s3'
 gem 'backup'
 gem 'bson_ext', '~> 1.3'
 gem 'cancan'

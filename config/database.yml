@@ -3,11 +3,14 @@
 development:
   adapter: mysql2
   encoding: utf8
-  host: <%= ENV['DB_HOST'] %>
-  port: <%= ENV['DB_PORT'] %>
-  database: <%= ENV['DB_NAME'] %>
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASS'] %>
+  <%= file = File.join(RAILS_ROOT, "config", "private_db.yml")
+    IO.read(file) if File.exist?(file) %>
+
+#  host: <%= ENV['DB_HOST'] %>
+#  port: <%= ENV['DB_PORT'] %>
+#  database: <%= ENV['DB_NAME'] %>
+#  username: <%= ENV['DB_USER'] %>
+#  password: <%= ENV['DB_PASS'] %>
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and

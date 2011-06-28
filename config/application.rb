@@ -14,9 +14,12 @@ module SimpleWorkerRailsExample
 
     SimpleWorker.logger.level = Logger::DEBUG
 
+    @private_config = YAML.load_file('config/private.yml')
+
     SimpleWorker.configure do |config|
-      config.access_key = ENV['SIMPLEWORKER_ACCESS_KEY']
-      config.secret_key = ENV['SIMPLEWORKER_SECRET_KEY']
+      config.access_key = @private_config['sw']['access_key']
+      config.secret_key = @private_config['sw']['secret_key']
+      config.auto_merge = true
     end
 
     config.action_mailer.delivery_method = :smtp

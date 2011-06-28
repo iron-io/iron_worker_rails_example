@@ -1,7 +1,7 @@
 SimpleWorkerRailsExample::Application.routes.draw do
   resources :posts do
     member do
-      post 'email'
+      get 'email'
     end
   end
 
