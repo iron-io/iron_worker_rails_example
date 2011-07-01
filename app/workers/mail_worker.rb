@@ -1,3 +1,4 @@
+# bump...
 class MailWorker < SimpleWorker::Base
 
   attr_accessor :post_id

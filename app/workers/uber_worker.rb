@@ -1,10 +1,15 @@
-# bump........
+# bump....................
 class UberWorker < SimpleWorker::Base
+
+  attr_accessor :db_config
 
   def run
     log "hello!"
 #    log "Rails is " + Rails.inspect
-#    Rails.env
+    log "env: #{Rails.env}"
+    log "version: #{Rails.version}"
+    log "database: #{db_config.inspect}"
+
     log 3.seconds.ago
     log 'mini_fb? ' + MiniFB.scopes.inspect
 
