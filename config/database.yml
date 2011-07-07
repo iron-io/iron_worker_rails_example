@@ -3,8 +3,15 @@
 development:
   adapter: mysql2
   encoding: utf8
-  <%= file = File.join(RAILS_ROOT, "config", "private_db.yml")
-    IO.read(file) if File.exist?(file) %>
+  host: <%= Rails.application.config.db_config['host'] %>
+  port: <%= Rails.application.config.db_config['port'] %>
+  database: <%= Rails.application.config.db_config['database'] %>
+  username: <%= Rails.application.config.db_config['username'] %>
+  password: <%= Rails.application.config.db_config['password'] %>
+#  socket: /tmp/mysql.sock
+
+#  < %= file = File.join(RAILS_ROOT, "config", "private_db.yml")
+#    IO.read(file) if File.exist?(file) % >
 
 #  host: <%= ENV['DB_HOST'] %>
 #  port: <%= ENV['DB_PORT'] %>

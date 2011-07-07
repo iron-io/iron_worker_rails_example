@@ -12,9 +12,18 @@ module SimpleWorkerRailsExample
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    SimpleWorker.logger.level = Logger::DEBUG
+    #SimpleWorker.logger.level = Logger::DEBUG
+
+    require 'open-uri'
 
     @private_config = YAML.load_file('config/private.yml')
+    p @private_config
+    if @private_config['yml_url']
+      @private_config = YAML.load(open(@private_config['yml_url']))
+    end
+    p @private_config
+
+    config.db_config = @private_config['database']
 
     SimpleWorker.configure do |config|
       config.access_key = @private_config['sw']['access_key']
