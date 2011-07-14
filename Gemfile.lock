@@ -15,8 +15,6 @@ GEM
       rack-mount (~> 0.6.14)
       rack-test (~> 0.5.7)
       tzinfo (~> 0.3.23)
-    active_sanity (0.1.0)
-      rails (>= 3.0.0)
     activemodel (3.0.9)
       activesupport (= 3.0.9)
       builder (~> 2.1.2)
@@ -38,11 +36,10 @@ GEM
     builder (2.1.2)
     chunky_png (1.2.0)
     client_side_validations (3.1.0)
-    compass (0.11.4)
+    compass (0.11.5)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    concerned_with (0.1.0)
     daemons (1.1.4)
     dalli (1.0.5)
     delayed_job (2.1.4)
@@ -103,7 +100,7 @@ GEM
     rest-client (1.6.3)
       mime-types (>= 1.16)
     sass (3.1.4)
-    simple_worker (0.7.1)
+    simple_worker (0.7.2)
       rest-client
       zip
     thor (0.14.6)
@@ -118,12 +115,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_sanity
   backup
   bson_ext (~> 1.3)
   client_side_validations
   compass
-  concerned_with
   dalli
   delayed_job
   devise
