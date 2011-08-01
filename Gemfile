@@ -9,6 +9,8 @@ gem 'rails', '3.0.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3'
+#gem 'mysql'
+#gem 'activerecord-mysql2-adapter'
 gem 'mysql2', '< 0.3'
 
 gem 'jquery-rails'

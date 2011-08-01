@@ -12,12 +12,20 @@
 
 ActiveRecord::Schema.define(:version => 20110504013623) do
 
+  create_table "main_table", :primary_key => "timestamp", :force => true do |t|
+    t.integer "number1", :null => false
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "name"
     t.string   "title"
-    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "body",       :null => false
+  end
+
+  create_table "tester", :id => false, :force => true do |t|
+    t.integer "test1", :null => false
   end
 
 end
