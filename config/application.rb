@@ -35,7 +35,7 @@ module SimpleWorkerRailsExample
     end
     p @private_config
 
-    config.db_config = @private_config['database']
+    #config.db_config = @private_config['database']
 
     SimpleWorker.configure do |config|
       config.access_key = @private_config['sw']['access_key']
