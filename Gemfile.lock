@@ -100,7 +100,7 @@ GEM
     rest-client (1.6.3)
       mime-types (>= 1.16)
     sass (3.1.5)
-    simple_worker (0.7.2)
+    simple_worker (0.7.3)
       rest-client
       zip
     thor (0.14.6)

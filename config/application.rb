@@ -41,6 +41,9 @@ module SimpleWorkerRailsExample
       config.access_key = @private_config['sw']['access_key']
       config.secret_key = @private_config['sw']['secret_key']
       config.auto_merge = true
+      config.unmerge_gem('client_side_validations')
+      config.unmerge_gem('delayed_job')
+      config.unmerge_gem('devise')
     end
 
     config.action_mailer.delivery_method = :smtp
