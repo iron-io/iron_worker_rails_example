@@ -2,15 +2,21 @@ This project is a sample project to show how to use SimpleWorker in Rails (it's 
 
 # Getting Started
 
-## SimpleWorker Keys
+## Configuration
 
-Get your keys at http://www.simpleworker.com
+Get your SimpleWorker keys at http://www.simpleworker.com . Then create a config/private.yml file with:
 
-## Database
+```
+sw:
+    access_key: MY_ACCESS_KEY
+    secret_key: MY_SECRET_KEY
 
-Create a config/database.yml file with your database credentials.
+gmail:
+    username: gmail_username@gmail.com
+    password: gmail_password
+```
 
-## Mail
+### Database
 
-This example app uses gmail to send mail so you need to supply your gmail credentials in the GMAIL_USER and
-GMAIL_PASS environment variables.
+Create a config/database.yml file with your database credentials, typical Rails style.
+

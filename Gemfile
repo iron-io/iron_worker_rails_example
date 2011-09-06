@@ -14,7 +14,7 @@ gem 'rails', '3.0.9'
 gem 'mysql2', '< 0.3'
 
 gem 'jquery-rails'
-gem 'simple_worker'
+gem 'simple_worker', '>= 1.0.0.beta'
 gem 'mini_fb'
 gem 'eventmachine'
 #gem 'acts-as-taggable-on'gem 'aws-s3', :require => 'aws/s3'

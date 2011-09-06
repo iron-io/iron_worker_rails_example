@@ -17,6 +17,7 @@ class PostsController < ApplicationController
     if params[:async]
       worker = MailWorker.new
       worker.post_id = params[:id]
+      worker.to = Rails.application.config.private_config['gmail']['username']
       worker.queue(:priority=>1)
       flash[:success] = "Post sent!"
     else

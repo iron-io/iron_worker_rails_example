@@ -1,7 +1,7 @@
-# bump...
+# bump.......
 class MailWorker < SimpleWorker::Base
 
-  attr_accessor :post_id
+  attr_accessor :post_id, :to
 
   def run
 
@@ -11,7 +11,7 @@ class MailWorker < SimpleWorker::Base
 
     log 'post=' + @post.inspect
 
-    Mailer.send_post()
+    #Mailer.send_post(@post, to)
 
   end
 

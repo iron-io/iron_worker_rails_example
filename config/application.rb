@@ -31,28 +31,21 @@ module SimpleWorkerRailsExample
     @private_config = YAML.load_file('config/private.yml')
     p @private_config
     if @private_config['yml_url']
-      @private_config = YAML.load(open(@private_config['yml_url']))
+      @private_config.merge!(YAML.load(open(@private_config['yml_url'])))
     end
     p @private_config
+    config.private_config = @private_config
 
-    #config.db_config = @private_config['database']
-
-    SimpleWorker.configure do |config|
-      config.access_key = @private_config['sw']['access_key']
-      config.secret_key = @private_config['sw']['secret_key']
-      config.auto_merge = true
-      config.unmerge_gem('client_side_validations')
-      config.unmerge_gem('delayed_job')
-      config.unmerge_gem('devise')
+    unless @private_config['gmail']
+      raise "You must have gmail configuration setup in private.yml, see README."
     end
-
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
         :address => "smtp.gmail.com",
         :port => 587,
         :domain => 'gmail.com',
-        :user_name => ENV['GMAIL_USER'],
-        :password => ENV['GMAIL_PASS'],
+        :user_name => @private_config['gmail']['username'],
+        :password => @private_config['gmail']['password'],
         :authentication => 'plain',
         :enable_starttls_auto => true}
 
