@@ -1,0 +1,8 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  username: db username here
+  password: db password here
+  host: db host here
+  database: db name here

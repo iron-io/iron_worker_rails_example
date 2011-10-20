@@ -28,7 +28,12 @@ module SimpleWorkerRailsExample
 
     require 'open-uri'
 
-    @private_config = YAML.load_file('config/private.yml')
+    begin
+      @private_config = YAML.load_file('config/private.yml')
+    rescue
+      raise "You must create private.yml, see README."
+    end
+
     p @private_config
     if @private_config['yml_url']
       @private_config.merge!(YAML.load(open(@private_config['yml_url'])))

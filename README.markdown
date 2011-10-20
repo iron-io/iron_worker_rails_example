@@ -18,5 +18,5 @@ gmail:
 
 ### Database
 
-Create a config/database.yml file with your database credentials, typical Rails style.
+Create a config/database.yml file with your database credentials, typical Rails style. Database must be accessible from external hosts.
 
