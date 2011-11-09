@@ -8,8 +8,8 @@ Get your SimpleWorker keys at http://www.simpleworker.com . Then create a config
 
 ```
 sw:
-    access_key: MY_ACCESS_KEY
-    secret_key: MY_SECRET_KEY
+    token: MY_TOKEN
+    project_id: MY PROJECT ID
 
 gmail:
     username: gmail_username@gmail.com

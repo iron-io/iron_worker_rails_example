@@ -1,6 +1,6 @@
 SimpleWorker.configure do |config|
-  config.access_key = Rails.application.config.private_config['sw']['access_key']
-  config.secret_key = Rails.application.config.private_config['sw']['secret_key']
+  config.token = Rails.application.config.private_config['sw']['token']
+  config.project_id = Rails.application.config.private_config['sw']['project_id']
   config.auto_merge = true
   config.database = Rails.configuration.database_configuration[Rails.env]
   config.unmerge_gem('client_side_validations')
