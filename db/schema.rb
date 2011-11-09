@@ -11,13 +11,6 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20110504013623) do
-pos
-  create_table "db_models", :force => true do |t|
-    t.timestamp "created_at", :null => false
-    t.timestamp "updated_at", :null => false
-    t.string    "name",       :null => false
-    t.integer   "age",        :null => false
-  end
 
   create_table "posts", :force => true do |t|
     t.string   "name"

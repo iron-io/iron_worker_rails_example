@@ -4,8 +4,7 @@ class Mailer < ActionMailer::Base
   def send_post(post, to)
     @post = post
     mail(:to=>to,
-    :subject=>"Post: #{@post.title}")
-
+    :subject=>"Post: #{@post.title}",:body=>"Hey i'm from mailer'")
   end
 
 end

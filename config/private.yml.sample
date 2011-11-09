@@ -1,0 +1,7 @@
+sw:
+  access_key: your sw access key here
+  secret_key: your sw secret key here
+
+gmail:
+  username: your.gmail.address.here@gmail.com
+  password: your gmail password here
