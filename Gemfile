@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~>3.1'
+gem 'rails', '~> 3.1.0'
 
 gem 'mysql2', '>= 0.3'
 
@@ -14,6 +14,7 @@ gem 'bson_ext', '~> 1.3'
 # todo: get this working: gem 'cancan'
 gem 'client_side_validations'
 gem 'compass'
+gem 'concerned_with'
 gem 'dalli'
 gem 'delayed_job'
 gem 'devise'
