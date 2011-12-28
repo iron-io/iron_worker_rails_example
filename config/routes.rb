@@ -1,4 +1,4 @@
-SimpleWorkerRailsExample::Application.routes.draw do
+IronWorkerRailsExample::Application.routes.draw do
   resources :posts do
     member do
       get 'email'

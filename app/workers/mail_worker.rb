@@ -1,5 +1,5 @@
 # bump.......
-class MailWorker < SimpleWorker::Base
+class MailWorker < IronWorker::Base
 
   attr_accessor :post_id, :to
 

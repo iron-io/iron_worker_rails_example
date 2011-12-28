@@ -1,5 +1,5 @@
 # bump.
-class UberWorker < SimpleWorker::Base
+class UberWorker < IronWorker::Base
 
   attr_accessor :db_config
 

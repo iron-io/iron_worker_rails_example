@@ -1,13 +1,13 @@
-This project is a sample project to show how to use SimpleWorker in Rails (it's very easy).
+This project is a sample project to show how to use IronWorker in Rails (it's very easy).
 
 # Getting Started
 
 ## Configuration
 
-Get your SimpleWorker keys at http://www.simpleworker.com . Then create a config/private.yml file with:
+Get your IronWorker keys at http://www.iron.io . Then create a config/private.yml file with:
 
 ```
-sw:
+iron:
     token: MY_TOKEN
     project_id: MY PROJECT ID
 

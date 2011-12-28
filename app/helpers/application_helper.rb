@@ -1,10 +1,10 @@
 module ApplicationHelper
 
   def flash_messages(options={})
-    if flash.size > 0
+    if !flash.empty?
       s = "<div class=\"flash_messages_container\">"
       s2 = ""
-      flash.each_pair do |type, msg|
+      flash.each do |type, msg|
         clazz = "flash #{type}"
         if msg.is_a?(Array)
           msg.each do |m|
