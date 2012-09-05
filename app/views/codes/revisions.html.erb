@@ -1,0 +1,23 @@
+<h1>Revisions</h1>
+<table border="1">
+  <thead>
+  <tr>
+    <td>Code Name</td>
+    <td>Created at</td>
+    <td>Revision</td>
+    <td>Runtime</td>
+  </tr>
+  </thead>
+
+  <% @revisions.each do |revision| %>
+      <tr>
+        <td><%= revision.name %></td>
+        <td><%= revision.created_at %></td>
+        <td><%= revision.rev %></td>
+        <td><%= revision.runtime %></td>
+      </tr>
+  <% end %>
+</table>
+
+</br>
+<%= link_to :back %>

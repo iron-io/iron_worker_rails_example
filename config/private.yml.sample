@@ -1,7 +1,0 @@
-iron:
-  token: your sw access key here
-  project_id: your sw secret key here
-
-gmail:
-  username: your.gmail.address.here@gmail.com
-  password: your gmail password here

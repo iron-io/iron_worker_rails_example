@@ -1,0 +1,19 @@
+<h1>Scheduled tasks</h1>
+<p>
+<ul>
+  <li>
+    10) schedule task
+    schedule = client.schedules.create('MyWorker', {:client => 'Joe'}, {:start_at => Time.now + 3600})
+  <li>
+    11) list of scheduled task
+    client.schedules.list.each do |schedule|
+    puts schedule.inspect
+    end
+    puts client.schedules.get('1234567890').last_run_time
+  </li>
+  <li>
+    10) cancel scheduled task
+    client.schedules.cancel('1234567890')
+  </li>
+</ul>
+</p>

@@ -1,62 +1,19 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-#%w(
-#  action_controller
-#  action_mailer
-#  active_resource
-#  rails/test_unit
-#).each do |framework|
-#  begin
-#    require "#{framework}/railtie"
-#  rescue LoadError
-#  end
-#end
 
+if defined?(Bundler)
+  # If you precompile assets before deploying to production, use this line
+  Bundler.require(*Rails.groups(:assets => %w(development test)))
+  # If you want your assets lazily compiled in production, use this line
+  # Bundler.require(:default, :assets, Rails.env)
+end
 
-# If you have a Gemfile, require the gems listed there, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
-
-module IronWorkerRailsExample
+module App
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
-    #IronWorker.logger.level = Logger::DEBUG
-
-    require 'open-uri'
-
-    begin
-      @private_config = YAML.load_file('config/private.yml')
-    rescue
-      raise "You must create private.yml, see README."
-    end
-
-    p @private_config
-    if @private_config['yml_url']
-      @private_config.merge!(YAML.load(open(@private_config['yml_url'])))
-    end
-    p @private_config
-    config.private_config = @private_config
-
-    unless @private_config['gmail']
-      puts "NOTE: You do not have smtp configuration setup so email's will not work. See README for more information."
-      #raise "You must have gmail configuration setup in private.yml, see README."
-    else
-      config.action_mailer.delivery_method = :smtp
-      config.action_mailer.smtp_settings = {
-          :address => "smtp.gmail.com",
-          :port => 587,
-          :domain => 'gmail.com',
-          :user_name => @private_config['gmail']['username'],
-          :password => @private_config['gmail']['password'],
-          :authentication => 'plain',
-          :enable_starttls_auto => true}
-
-    end
-
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
@@ -76,13 +33,30 @@ module IronWorkerRailsExample
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # JavaScript files you want as :defaults (application.js is always included).
-    # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
-
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # Enable escaping HTML in JSON.
+    config.active_support.escape_html_entities_in_json = true
+
+    # Use SQL instead of Active Record's schema dumper when creating the database.
+    # This is necessary if your schema can't be completely dumped by the schema dumper,
+    # like if you have constraints or database-specific column types
+    # config.active_record.schema_format = :sql
+
+    # Enforce whitelist mode for mass assignment.
+    # This will create an empty whitelist of attributes available for mass-assignment for all models
+    # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
+    # parameters by using an attr_accessible or attr_protected declaration.
+    config.active_record.whitelist_attributes = true
+
+    # Enable the asset pipeline
+    config.assets.enabled = true
+
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.0'
   end
 end

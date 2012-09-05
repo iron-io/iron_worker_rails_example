@@ -1,14 +1,27 @@
-IronWorkerRailsExample::Application.routes.draw do
-  resources :posts do
-    member do
-      get 'email'
-    end
-  end
-
-  get "home/index"
-
+App::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
+  resources :codes do
+    member do
+      get 'download'
+      get 'revisions'
+    end
+    collection do
+      post 'upload'
+    end
+  end
+  resources :tasks do
+    collection do
+      post 'queue'
+    end
+    member do
+      post 'cancel'
+      post 'cancel_all'
+      post 'retry_task'
+      get 'log'
+    end
+  end
+  resources :schedules
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -56,11 +69,11 @@ IronWorkerRailsExample::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "home#index"
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+  # match ':controller(/:action(/:id))(.:format)'
 end

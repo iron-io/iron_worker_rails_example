@@ -1,0 +1,5 @@
+# define the runtime language, this can be ruby, java, node, php, go, etc.
+runtime "ruby"
+name "HelloWorker"
+# exec is the file that will be executed:
+exec "hello_worker.rb"
