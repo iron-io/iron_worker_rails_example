@@ -31,11 +31,11 @@
     <h5>There are now any tasks, feel free to queue new one</h5>
 <% end %>
 <p>
-  <%= form_tag("/queue") do %>
+  <%= form_tag(queue_tasks_path) do %>
       <%= label_tag(:worker_name) %>
-      <%= text_field_tag(:worker_name) %>
+      <%= text_field_tag(:worker_name,"HelloWorker") %>
       <%= label_tag(:task_params) %>
-      <%= text_field_tag(:task_params) %>
+      <%= text_field_tag(:task_params,'{"text":"sample"}') %>
       <%= submit_tag("Queue") %>
 <% end %>
 <%=link_to "Back", root_path%>

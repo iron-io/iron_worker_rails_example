@@ -9,6 +9,7 @@
         <td>Revision</td>
         <td>Actions</td>
         <td>Queue!</td>
+        <td>Schedule!</td>
       </tr>
       </thead>
 
@@ -23,6 +24,7 @@
               <%= link_to "Download", download_code_path(c.id) %>
             </td>
             <td><%= button_to "Queue!", queue_tasks_path(:worker_name => c.name) %></td>
+            <td><%= button_to "Schedule!", schedule_task_schedules_path(:worker_name => c.name, :seconds => 10) %></td>
           </tr>
       <% end %>
     </table>

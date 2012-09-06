@@ -1,2 +1,2 @@
 puts "Hello Worker!"
-puts "I got '#{params}' parameters"
+puts "I got '#{params.inspect}' parameters"

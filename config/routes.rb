@@ -21,7 +21,14 @@ App::Application.routes.draw do
       get 'log'
     end
   end
-  resources :schedules
+  resources :schedules do
+    collection do
+      post 'schedule_task'
+    end
+    member do
+      post 'cancel'
+    end
+  end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
