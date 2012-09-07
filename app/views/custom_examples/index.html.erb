@@ -1,0 +1,11 @@
+<h1>List of simple demos</h1>
+
+<h3>Mailer Worker</h3>
+This is simple worker that just send email via worker (don't forget to set proper mailer configuration in config_development.yml)
+<%= form_tag(send_email_custom_examples_path) do %>
+    <%= label_tag(:email) %>
+    <%= text_field_tag(:email, 'email@email.com') %>
+    <%= label_tag(:message) %>
+    <%= text_field_tag(:message, 'sample message') %>
+    <%= submit_tag("Send Email!") %>
+<% end %>

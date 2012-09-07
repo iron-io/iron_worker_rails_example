@@ -8,8 +8,9 @@ class SchedulesController < ApplicationController
     redirect_to schedules_path
   end
 
-  def schedule_task
-    res = client.schedules.create(params[:worker_name], JSON.parse(params[:schedule_params]), {:start_at => Time.now + params[:seconds].to_i  })
+  def create
+    schedule_params = params['schedule_params'] ? JSON.parse(params['schedule_params']) : {}
+    res = client.schedules.create(params['worker_name'], schedule_params, {:start_at => Time.now + params['seconds'].to_i})
     puts "Result:#{res.inspect}"
     redirect_to schedules_path
   end

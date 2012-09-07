@@ -6,14 +6,8 @@ App::Application.routes.draw do
       get 'download'
       get 'revisions'
     end
-    collection do
-      post 'upload'
-    end
   end
   resources :tasks do
-    collection do
-      post 'queue'
-    end
     member do
       post 'cancel'
       post 'cancel_all'
@@ -22,11 +16,14 @@ App::Application.routes.draw do
     end
   end
   resources :schedules do
-    collection do
-      post 'schedule_task'
-    end
     member do
       post 'cancel'
+    end
+  end
+
+  resources :custom_examples do
+    collection do
+      post 'send_email'
     end
   end
 

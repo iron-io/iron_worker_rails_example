@@ -58,5 +58,15 @@ module App
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    config2 = YAML.load_file(File.join(Rails.root, "config_#{Rails.env}.yml"))
+    config.action_mailer.smtp_settings =
+        {
+            :address => config2['address'],
+            :port => config2['port'],
+            :domain => config2['domain'],
+            :authentication => :plain,
+            :user_name => config2['user_name'],
+            :password => config2['password']
+        }
   end
 end

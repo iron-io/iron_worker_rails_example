@@ -1,5 +1,17 @@
 <h1>Scheduled tasks</h1>
 
+<h3>Schedule Task</h3>
+<%= form_tag(schedules_path) do %>
+    <%= label_tag(:worker_name) %>
+    <%= text_field_tag(:worker_name, "HelloWorker") %>
+    <%= label_tag(:schedule_params) %>
+    <%= text_field_tag(:schedule_params, '{"text":"sample"}') %>
+    <%= label_tag(:seconds) %>
+    <%= select_tag "seconds", options_for_select([5, 10, 15], 1) %>
+    <%= submit_tag("Schedule") %>
+<% end %>
+
+
 <h3>List of scheduled tasks:</h3>
 <% if !@schedules.empty? %>
     <table border="1">
@@ -30,13 +42,4 @@
     <h5>There are now any active scheduled tasks, feel free to schedule new one</h5>
 <% end %>
 
-<%= form_tag(schedule_task_schedules_path) do %>
-    <%= label_tag(:worker_name) %>
-    <%= text_field_tag(:worker_name, "HelloWorker") %>
-    <%= label_tag(:schedule_params) %>
-    <%= text_field_tag(:schedule_params, '{"text":"sample"}') %>
-    <%= label_tag(:seconds) %>
-    <%= select_tag "seconds", options_for_select([5, 10, 15], 1) %>
-    <%= submit_tag("Schedule") %>
-<% end %>
 <%= link_to "Back", root_path %>

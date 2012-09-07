@@ -4,8 +4,8 @@ class CodesController < ApplicationController
     @files = Dir.glob('workers/*.worker')
   end
 
-  def upload
-    code_from_workerfile = IronWorkerNG::Code::Base.new(:workerfile => params[:filename])
+  def create
+    code_from_workerfile = IronWorkerNG::Code::Base.new(:workerfile => params['filename'])
     client.codes.create(code_from_workerfile)
     redirect_to codes_path
   end

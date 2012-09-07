@@ -1,0 +1,8 @@
+# define the runtime language, this can be ruby, java, node, php, go, etc.
+runtime "ruby"
+name "SimpleMailerWorker"
+file "../app/views/simple_mailer/welcome_email.erb"  , "simple_mailer"
+file "../app/mailers/simple_mailer.rb"
+
+# exec is the file that will be executed:
+exec "simple_mailer_worker.rb"

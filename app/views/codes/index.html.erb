@@ -1,4 +1,22 @@
 <h1>Manage your codes</h1>
+
+<h3>Worker files to upload</h3>
+<table border="1">
+  <thead>
+  <tr>
+    <td>File Name</td>
+    <td>Action</td>
+  </tr>
+  </thead>
+
+  <% @files.each do |f| %>
+      <tr>
+        <td><%= File.basename(f) %></td>
+        <td><%= button_to "Upload file",codes_path(:filename => f) %></td>
+  <% end %>
+</table>
+
+<h3>List of existed codes:</h3>
 <% if !@codes.empty? %>
     <table border="1">
       <thead>
@@ -23,8 +41,8 @@
               <%= link_to "Revisions", revisions_code_path(c.id) %>
               <%= link_to "Download", download_code_path(c.id) %>
             </td>
-            <td><%= button_to "Queue!", queue_tasks_path(:worker_name => c.name) %></td>
-            <td><%= button_to "Schedule!", schedule_task_schedules_path(:worker_name => c.name, :seconds => 10) %></td>
+            <td><%= button_to "Queue!", tasks_path(:worker_name => c.name) %></td>
+            <td><%= button_to "Schedule!", schedules_path(:worker_name => c.name, :seconds => 10) %></td>
           </tr>
       <% end %>
     </table>
@@ -33,19 +51,4 @@
 <% end %>
 
 
-<h3>Worker files to upload</h3>
-<table border="1">
-  <thead>
-  <tr>
-    <td>File Name</td>
-    <td>Action</td>
-  </tr>
-  </thead>
-
-  <% @files.each do |f| %>
-      <tr>
-        <td><%= File.basename(f) %></td>
-        <td><%= button_to "Upload file", upload_codes_path(:filename => f) %></td>
-  <% end %>
-</table>
 <%= link_to "Back", root_path %>
