@@ -1,8 +1,12 @@
 # define the runtime language, this can be ruby, java, node, php, go, etc.
 runtime "ruby"
 name "SimpleMailerWorker"
+#merge your database adapter
+#gem 'mysql2'
+#merge erb file to a specific folder
 file "../app/views/simple_mailer/welcome_email.erb"  , "simple_mailer"
+ # merge mailer
 file "../app/mailers/simple_mailer.rb"
-
+dir "../app/models" # merge all models
 # exec is the file that will be executed:
 exec "simple_mailer_worker.rb"
