@@ -18,8 +18,8 @@ This example show how to work with iron_worker under Rails environment
 2.  Q:How to upload workers?
 
     A:You could upload workers from many places:
-    *    initializer [iron_worker](https://github.com/iron-io/iron_worker_rails_example/blob/master/config/initializers/iron_worker.rb#L4)
-    *    rake task
+    *    initializer - [iron_worker](https://github.com/iron-io/iron_worker_rails_example/blob/master/config/initializers/iron_worker.rb#L4)
+    *    rake task (rake iron_worker:upload) - [iron_worker.rake](https://github.com/iron-io/iron_worker_rails_example/blob/master/lib/tasks/iron_worker.rake)
     *    controller/model - [controller](https://github.com/iron-io/iron_worker_rails_example/blob/master/app/controllers/codes_controller.rb#L8)
 
 3.  Q:How to use ActionMailer in worker?
