@@ -1,8 +1,8 @@
-== Iron Worker 101 Rails example
+## Iron Worker 101 Rails example
 
 This example show how to work with iron_worker under Rails environment
 
-== Getting Started
+## Getting Started
 
 1. Set proper configuration in [iron.json](https://github.com/iron-io/iron_worker_rails_example/blob/master/iron.json) and [config_development.yml](https://github.com/iron-io/iron_worker_rails_example/blob/master/config_development.yml)
 
@@ -10,9 +10,9 @@ This example show how to work with iron_worker under Rails environment
 
 3. Go to http://localhost:3000 and test
 
-== FAQ Rail+IronWorker
-1. Q:Where to place workers? <br/>
-   A:Better to place workers in rails_root/workers dir like in example [worker dir](https://github.com/iron-io/iron_worker_rails_example/tree/master/workers)
-2. Q:How to use ActionMailer in worker? <br/>
-   A: *
+## FAQ Rail+IronWorker
+1.  Q:Where to place workers? <br/>
+    A:Better to place workers in rails_root/workers dir like in example [worker dir](https://github.com/iron-io/iron_worker_rails_example/tree/master/workers)
+2.  Q:How to use ActionMailer in worker? <br/>
+    A: *
 
