@@ -24,7 +24,7 @@ This example show how to work with iron_worker under Rails environment
 
 3.  Q:How to use ActionMailer in worker?
 
-    A: Follow next steps:
+    A: Follow the next steps:
     *    merge mailer and template in [.worker file](https://github.com/iron-io/iron_worker_rails_example/blob/master/workers/simple_mailer_worker.worker)
     *    send connection details as parameter [mailer details](https://github.com/iron-io/iron_worker_rails_example/blob/master/app/controllers/custom_examples_controller.rb#L6)
     *    configure mailer in worker - [init_mailer](https://github.com/iron-io/iron_worker_rails_example/blob/master/workers/simple_mailer_worker.rb#L7)
@@ -32,7 +32,7 @@ This example show how to work with iron_worker under Rails environment
 
 4.  Q:How to use Models in worker?
 
-    A: Follow next steps:
+    A: Follow the next steps:
     *    merge models in [.worker file](https://github.com/iron-io/iron_worker_rails_example/blob/master/workers/simple_mailer_worker.worker)
     *    send connection details as parameter [database details](https://github.com/iron-io/iron_worker_rails_example/blob/master/app/controllers/custom_examples_controller.rb#L6)
     *    configure database connection in worker - [setup_database](https://github.com/iron-io/iron_worker_rails_example/blob/master/workers/simple_mailer_worker.rb#L16)
