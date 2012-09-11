@@ -24,6 +24,7 @@ App::Application.routes.draw do
   resources :custom_examples do
     collection do
       post 'send_email'
+      post 'attribute_worker'
     end
   end
 

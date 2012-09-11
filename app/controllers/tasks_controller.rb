@@ -4,7 +4,10 @@ class TasksController < ApplicationController
   end
 
   def create
-    res = client.tasks.create(params['worker_name'], params['task_params'])
+    additional_params = {}
+    additional_params[:timeout] = params[:task_timeout].to_i if params[:task_timeout]
+    additional_params[:delay] = params[:delay].to_i if params[:delay]
+    res = client.tasks.create(params['worker_name'], params['task_params'], additional_params)
     puts "Result:#{res.inpect}"
     redirect_to tasks_path
   end

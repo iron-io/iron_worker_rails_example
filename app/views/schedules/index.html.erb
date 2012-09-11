@@ -2,13 +2,39 @@
 
 <h3>Schedule Task</h3>
 <%= form_tag(schedules_path) do %>
-    <%= label_tag(:worker_name) %>
-    <%= text_field_tag(:worker_name, "HelloWorker") %>
-    <%= label_tag(:schedule_params) %>
-    <%= text_field_tag(:schedule_params, '{"text":"sample"}') %>
-    <%= label_tag(:seconds) %>
-    <%= select_tag "seconds", options_for_select([5, 10, 15], 1) %>
-    <%= submit_tag("Schedule") %>
+    <table>
+      <tr>
+        <td><%= label_tag(:worker_name) %></td>
+        <td><%= text_field_tag(:worker_name, "HelloWorker") %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:schedule_params) %></td>
+        <td><%= text_field_tag(:schedule_params, '{"text":"sample"}') %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:run_after) %></td>
+        <td><%= select_tag :run_after, options_for_select([5, 10, 15], 1) %> seconds</td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:stop_after) %></td>
+        <td><%= select_tag :stop_after, options_for_select([10, 15, 20], 1) %> seconds</td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:run_every) %></td>
+        <td><%= select_tag :run_every, options_for_select([60, 120, 180], 1) %> seconds</td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:run_times) %></td>
+        <td><%= select_tag :run_times, options_for_select([5, 10, 15], 1) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:priority) %></td>
+        <td><%= select_tag :priority, options_for_select([0, 1, 2], 1) %></td>
+      </tr>
+      <tr>
+        <td><%= submit_tag("Schedule") %></td>
+      </tr>
+    </table>
 <% end %>
 
 

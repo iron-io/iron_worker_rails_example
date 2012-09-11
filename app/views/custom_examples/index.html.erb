@@ -9,3 +9,37 @@ This is simple worker that just send email via worker (don't forget to set prope
     <%= text_field_tag(:message, 'sample message') %>
     <%= submit_tag("Send Email!") %>
 <% end %>
+
+<h3>Attributes Worker</h3>
+This worker show how to pass and parse different data types to worker
+<%= form_tag(attribute_worker_custom_examples_path) do %>
+    <table>
+      <tr>
+        <td><%= label_tag(:fixnum_arg) %></td>
+        <td><%= text_field_tag(:fixnum_arg, '10') %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:floatnum_arg) %></td>
+        <td><%= text_field_tag(:floatnum_arg, '10.3333') %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:array_arg) %></td>
+        <td><%= text_field_tag(:array_arg, '10,2,3,4') %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:string_arg) %></td>
+        <td><%= text_field_tag(:string_arg, 'Hey this is string') %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:hash_arg) %></td>
+        <td><%= text_field_tag(:hash_arg, '{ "user" : { "name" : { "first" : "Bob", "last" : "Smith" } } }') %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:time_arg) %></td>
+        <td><%= text_field_tag(:time_arg,Time.now) %></td>
+      </tr>
+      <tr>
+        <td colspan="2"><%= submit_tag("Send to worker!") %></td>
+      </tr>
+    </table>
+<% end %>

@@ -1,6 +1,6 @@
 address: smtp.sendgrid.net
 port: 25
-domain: s
-user_name: sy
-password: a
+domain: domain.com
+user_name: system@domain.com
+password: strongPass
 

@@ -1,11 +1,43 @@
 <h1>Tasks</h1>
 <h3>Queue task</h3>
 <%= form_tag(tasks_path) do %>
-    <%= label_tag(:worker_name) %>
-    <%= text_field_tag(:worker_name, "HelloWorker") %>
-    <%= label_tag(:task_params) %>
-    <%= text_field_tag(:task_params, '{"text":"sample"}') %>
-    <%= submit_tag("Queue") %>
+    <table>
+      <tr>
+        <td>
+          <%= label_tag(:worker_name) %>
+        </td>
+        <td>
+          <%= text_field_tag(:worker_name, "HelloWorker") %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= label_tag(:task_params) %>
+        </td>
+        <td>
+          <%= text_field_tag(:task_params, '{"text":"sample"}') %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= label_tag(:delay) %>
+        </td>
+        <td>
+          <%= select_tag :delay, options_for_select([5, 10, 15], 1) %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= label_tag(:task_timeout) %>
+        </td>
+        <td>
+          <%= select_tag :task_timeout, options_for_select([5, 10, 15], 1) %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><%= submit_tag("Queue") %></td>
+      </tr>
+    </table>
 <% end %>
 
 <h3>List of tasks:</h3>
