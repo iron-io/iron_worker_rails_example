@@ -43,3 +43,38 @@ This worker show how to pass and parse different data types to worker
       <%= submit_tag("Send to worker!", :class => 'controls btn btn-primary') %>
     </div>
 <% end %>
+<h3>Deserialize Worker</h3>
+This is simple worker that create new custom object, send it to worker and recieve it back with processed data
+<div>
+  <%= form_tag(deserialize_worker_custom_examples_path, :class => 'form-inline') do %>
+
+      <%= text_field_tag(:a, '1,2,3,4') %>
+
+      <%= text_field_tag(:b, '5,6,7,8') %>
+      <%= submit_tag("Process values!", :class => 'btn btn-primary') %>
+  <% end %>
+  <% if !@deserialize_tasks.empty? %>
+      <table class="table table-bordered table-hover table-condensed">
+        <thead>
+        <tr>
+          <th>Code Name</th>
+          <th>Created at</th>
+          <th>Status</th>
+          <th>Duration</th>
+          <th>Get results!</th>
+        </tr>
+        </thead>
+
+        <% @deserialize_tasks.each do |t| %>
+            <tr>
+              <td><%= t.code_name %></td>
+              <td><%= t.created_at %></td>
+              <td><%= t.status %></td>
+              <td><%= t.duration %></td>
+              <td><%= link_to("Results", deserialize_worker_results_custom_examples_path(:id=>t.id)) if t.status=='complete' %></td>
+        <% end %>
+      </table>
+  <% else %>
+      <h5>There are now any tasks, feel free to queue new one</h5>
+  <% end %>
+</div>

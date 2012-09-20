@@ -1,5 +1,6 @@
 class CustomExamplesController < ApplicationController
   def index
+    @deserialize_tasks = client.tasks.list.select { |t| t.code_name == 'DeserializeWorker' }
   end
 
   def send_email
@@ -21,5 +22,20 @@ class CustomExamplesController < ApplicationController
 
     client.tasks.create('AttributeWorker', worker_attributes)
     redirect_to tasks_path
+  end
+
+  def deserialize_worker
+    m = ComplexModel.new
+    m.a = params['a'].split(',').map(&:to_i) rescue 1
+    m.b = params['b'].split(',').map(&:to_i) rescue [1, 2, 3]
+    client.tasks.create('DeserializeWorker', :complex_model => m.to_json, :iron_config => Rails.application.config.iron_config.to_json)
+    redirect_to custom_examples_path
+  end
+
+  def deserialize_worker_results
+    client = IronCache::Client.new(Rails.application.config.iron_config)
+    cache = client.cache("IronWorker101Example")
+    item = cache.get(params['id'])
+    @complex_model = JSON.load item.value
   end
 end

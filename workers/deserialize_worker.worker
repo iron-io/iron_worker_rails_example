@@ -1,0 +1,7 @@
+# define the runtime language, this can be ruby, java, node, php, go, etc.
+runtime "ruby"
+gem 'iron_cache'
+name "DeserializeWorker"
+dir "../app/models" # merge all models
+# exec is the file that will be executed:
+exec "deserialize_worker.rb"

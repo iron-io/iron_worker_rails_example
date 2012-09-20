@@ -25,6 +25,8 @@ App::Application.routes.draw do
     collection do
       post 'send_email'
       post 'attribute_worker'
+      post 'deserialize_worker'
+      get 'deserialize_worker_results'
     end
   end
 

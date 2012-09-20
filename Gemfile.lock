@@ -43,6 +43,8 @@ GEM
       multi_json (~> 1.0)
     hike (1.2.1)
     i18n (0.6.1)
+    iron_cache (1.2.1)
+      iron_core (>= 0.4.2)
     iron_core (0.4.2)
       rest (>= 2.0.2)
     iron_worker_ng (0.10.2)
@@ -131,6 +133,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  iron_cache
   iron_worker_ng
   jquery-rails
   rails (= 3.2.8)
