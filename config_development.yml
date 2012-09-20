@@ -4,3 +4,7 @@ domain: domain.com
 user_name: system@domain.com
 password: strongPass
 
+iron:
+  token: ZJI9lHPkA********************
+  project_id: 50**********************
+

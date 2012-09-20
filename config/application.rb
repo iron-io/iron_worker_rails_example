@@ -59,6 +59,8 @@ module App
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config2 = YAML.load_file(File.join(Rails.root, "config_#{Rails.env}.yml"))
+    puts "Initializing IronWorker for #{Rails.env} environment"
+    config.iw_client = IronWorkerNG::Client.new(:token => config2['iron']['token'], :project_id => config2['iron']['project_id'])
     config.action_mailer.smtp_settings =
         {
             :address => config2['address'],
