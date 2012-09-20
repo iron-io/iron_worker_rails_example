@@ -2,44 +2,44 @@
 
 <h3>Mailer Worker</h3>
 This is simple worker that just send email via worker (don't forget to set proper mailer configuration in config_development.yml)
-<%= form_tag(send_email_custom_examples_path) do %>
-    <%= label_tag(:email) %>
-    <%= text_field_tag(:email, 'email@email.com') %>
-    <%= label_tag(:message) %>
-    <%= text_field_tag(:message, 'sample message') %>
-    <%= submit_tag("Send Email!") %>
-<% end %>
+<div>
+  <%= form_tag(send_email_custom_examples_path, :class => 'form-inline') do %>
 
+      <%= text_field_tag(:email, 'email@email.com') %>
+
+      <%= text_field_tag(:message, 'sample message') %>
+      <%= submit_tag("Send Email!", :class => 'btn btn-primary') %>
+  <% end %>
+</div>
 <h3>Attributes Worker</h3>
 This worker show how to pass and parse different data types to worker
-<%= form_tag(attribute_worker_custom_examples_path) do %>
-    <table>
-      <tr>
-        <td><%= label_tag(:fixnum_arg) %></td>
-        <td><%= text_field_tag(:fixnum_arg, '10') %></td>
-      </tr>
-      <tr>
-        <td><%= label_tag(:floatnum_arg) %></td>
-        <td><%= text_field_tag(:floatnum_arg, '10.3333') %></td>
-      </tr>
-      <tr>
-        <td><%= label_tag(:array_arg) %></td>
-        <td><%= text_field_tag(:array_arg, '10,2,3,4') %></td>
-      </tr>
-      <tr>
-        <td><%= label_tag(:string_arg) %></td>
-        <td><%= text_field_tag(:string_arg, 'Hey this is string') %></td>
-      </tr>
-      <tr>
-        <td><%= label_tag(:hash_arg) %></td>
-        <td><%= text_field_tag(:hash_arg, '{ "user" : { "name" : { "first" : "Bob", "last" : "Smith" } } }') %></td>
-      </tr>
-      <tr>
-        <td><%= label_tag(:time_arg) %></td>
-        <td><%= text_field_tag(:time_arg,Time.now) %></td>
-      </tr>
-      <tr>
-        <td colspan="2"><%= submit_tag("Send to worker!") %></td>
-      </tr>
-    </table>
+<%= form_tag(attribute_worker_custom_examples_path, :class => "form-horizontal") do %>
+    <div class="control-group">
+      <%= label_tag(:fixnum_arg, nil, :class => 'control-label') %>
+      <%= text_field_tag(:fixnum_arg, '10', :class => 'controls') %>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:floatnum_arg, nil, :class => 'control-label') %>
+      <%= text_field_tag(:floatnum_arg, '10.3333', :class => 'controls') %>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:array_arg, nil, :class => 'control-label') %>
+      <%= text_field_tag(:array_arg, '10,2,3,4', :class => 'controls') %>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:string_arg, nil, :class => 'control-label') %>
+      <%= text_field_tag(:string_arg, 'Hey this is string', :class => 'controls') %>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:hash_arg, nil, :class => 'control-label') %>
+      <%= text_field_tag(:hash_arg, '{ "user" : { "name" : { "first" : "Bob", "last" : "Smith" } } }', :class => 'controls') %>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:time_arg, nil, :class => 'control-label') %>
+      <%= text_field_tag(:time_arg, Time.now, :class => 'controls') %>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:queue_the_task, nil, :class => 'control-label') %>
+      <%= submit_tag("Send to worker!", :class => 'controls btn btn-primary') %>
+    </div>
 <% end %>

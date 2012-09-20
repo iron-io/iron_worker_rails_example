@@ -1,11 +1,11 @@
 <h1>Manage your codes</h1>
 
 <h3>Worker files to upload</h3>
-<table border="1">
+<table class="table table-bordered table-hover table-condensed">
   <thead>
   <tr>
-    <td>File Name</td>
-    <td>Action</td>
+    <th>File Name</th>
+    <th>Action</th>
   </tr>
   </thead>
 
@@ -18,16 +18,16 @@
 
 <h3>List of existed codes:</h3>
 <% if !@codes.empty? %>
-    <table border="1">
+    <table class="table table-bordered table-hover table-condensed">
       <thead>
       <tr>
-        <td>Code Name</td>
-        <td>Created at</td>
-        <td>Latest change</td>
-        <td>Revision</td>
-        <td>Actions</td>
-        <td>Queue!</td>
-        <td>Schedule!</td>
+        <th>Code Name</th>
+        <th>Created at</th>
+        <th>Latest change</th>
+        <th>Revision</th>
+        <th>Actions</th>
+        <th>Queue!</th>
+        <th>Schedule!</th>
       </tr>
       </thead>
 

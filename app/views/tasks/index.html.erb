@@ -1,56 +1,40 @@
 <h1>Tasks</h1>
 <h3>Queue task</h3>
-<%= form_tag(tasks_path) do %>
-    <table>
-      <tr>
-        <td>
-          <%= label_tag(:worker_name) %>
-        </td>
-        <td>
-          <%= text_field_tag(:worker_name, "HelloWorker") %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <%= label_tag(:task_params) %>
-        </td>
-        <td>
-          <%= text_field_tag(:task_params, '{"text":"sample"}') %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <%= label_tag(:delay) %>
-        </td>
-        <td>
-          <%= select_tag :delay, options_for_select([5, 10, 15], 1) %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <%= label_tag(:task_timeout) %>
-        </td>
-        <td>
-          <%= select_tag :task_timeout, options_for_select([5, 10, 15], 1) %>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2"><%= submit_tag("Queue") %></td>
-      </tr>
-    </table>
+<%= form_tag(tasks_path, :class => "form-horizontal") do %>
+    <div class="control-group">
+      <%= label_tag(:worker_name, nil, :class => 'control-label') %>
+      <%= text_field_tag(:worker_name, "HelloWorker", :class => 'controls') %>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:task_params, nil, :class => 'control-label') %>
+      <%= text_field_tag(:task_params, '{"text":"sample"}', :class => 'controls') %>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:delay, nil, :class => 'control-label') %>
+      <%= select_tag :delay, options_for_select([5, 10, 15], 1), :class => 'controls' %>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:task_timeout, nil, :class => 'control-label') %>
+      <%= select_tag :task_timeout, options_for_select([5, 10, 15], 1), :class => 'controls' %>
+
+    </div>
+    <div class="control-group">
+      <%= label_tag(:queue_the_task, nil, :class => 'control-label') %>
+      <%= submit_tag("Queue", :class => 'controls btn btn-primary') %>
+    </div>
 <% end %>
 
 <h3>List of tasks:</h3>
 <% if !@tasks.empty? %>
-    <table border="1">
+    <table class="table table-bordered table-hover table-condensed">
       <thead>
       <tr>
-        <td>Code Name</td>
-        <td>Created at</td>
-        <td>Status</td>
-        <td>Duration</td>
-        <td>Log</td>
-        <td>Actions</td>
+        <th>Code Name</th>
+        <th>Created at</th>
+        <th>Status</th>
+        <th>Duration</th>
+        <th>Log</th>
+        <th>Actions</th>
       </tr>
       </thead>
 

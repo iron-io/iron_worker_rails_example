@@ -1,54 +1,53 @@
 <h1>Scheduled tasks</h1>
 
 <h3>Schedule Task</h3>
-<%= form_tag(schedules_path) do %>
-    <table>
-      <tr>
-        <td><%= label_tag(:worker_name) %></td>
-        <td><%= text_field_tag(:worker_name, "HelloWorker") %></td>
-      </tr>
-      <tr>
-        <td><%= label_tag(:schedule_params) %></td>
-        <td><%= text_field_tag(:schedule_params, '{"text":"sample"}') %></td>
-      </tr>
-      <tr>
-        <td><%= label_tag(:run_after) %></td>
-        <td><%= select_tag :run_after, options_for_select([5, 10, 15], 1) %> seconds</td>
-      </tr>
-      <tr>
-        <td><%= label_tag(:stop_after) %></td>
-        <td><%= select_tag :stop_after, options_for_select([10, 15, 20], 1) %> seconds</td>
-      </tr>
-      <tr>
-        <td><%= label_tag(:run_every) %></td>
-        <td><%= select_tag :run_every, options_for_select([60, 120, 180], 1) %> seconds</td>
-      </tr>
-      <tr>
-        <td><%= label_tag(:run_times) %></td>
-        <td><%= select_tag :run_times, options_for_select([5, 10, 15], 1) %></td>
-      </tr>
-      <tr>
-        <td><%= label_tag(:priority) %></td>
-        <td><%= select_tag :priority, options_for_select([0, 1, 2], 1) %></td>
-      </tr>
-      <tr>
-        <td><%= submit_tag("Schedule") %></td>
-      </tr>
-    </table>
+<%= form_tag(schedules_path, :class => "form-horizontal") do %>
+    <div class="control-group">
+      <%= label_tag(:worker_name, nil, :class => 'control-label') %>
+      <%= text_field_tag(:worker_name, "HelloWorker", :class => 'controls') %>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:schedule_params, nil, :class => 'control-label') %>
+      <%= text_field_tag(:schedule_params, '{"text":"sample"}', :class => 'controls') %>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:run_after, nil, :class => 'control-label') %>
+      <%= select_tag :run_after, options_for_select([5, 10, 15], 1), :class => 'controls' %> seconds
+    </div>
+    <div class="control-group">
+      <%= label_tag(:stop_after, nil, :class => 'control-label') %>
+      <%= select_tag :stop_after, options_for_select([10, 15, 20], 1), :class => 'controls' %> seconds
+    </div>
+    <div class="control-group">
+      <%= label_tag(:run_every, nil, :class => 'control-label') %>
+      <%= select_tag :run_every, options_for_select([60, 120, 180], 1), :class => 'controls' %> seconds
+    </div>
+    <div class="control-group">
+      <%= label_tag(:run_times, nil, :class => 'control-label') %>
+      <%= select_tag :run_times, options_for_select([5, 10, 15], 1), :class => 'controls' %>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:priority, nil, :class => 'control-label') %></td>
+      <%= select_tag :priority, options_for_select([0, 1, 2], 1), :class => 'controls' %>
+    </div>
+    <div class="control-group">
+      <%= label_tag(:schedule_the_task, nil, :class => 'control-label') %>
+      <%= submit_tag("Schedule", :class => 'controls btn btn-primary') %>
+    </div>
 <% end %>
 
 
 <h3>List of scheduled tasks:</h3>
 <% if !@schedules.empty? %>
-    <table border="1">
+    <table class="table table-bordered table-hover table-condensed">
       <thead>
       <tr>
-        <td>Code Name</td>
-        <td>Created at</td>
-        <td>Status</td>
-        <td>Start at</td>
-        <td>Next start</td>
-        <td>Actions</td>
+        <th>Code Name</th>
+        <th>Created at</th>
+        <th>Status</th>
+        <th>Start at</th>
+        <th>Next start</th>
+        <th>Actions</th>
       </tr>
       </thead>
 
