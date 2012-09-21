@@ -13,6 +13,7 @@ App::Application.routes.draw do
       post 'cancel_all'
       post 'retry_task'
       get 'log'
+      get 'status'
     end
   end
   resources :schedules do

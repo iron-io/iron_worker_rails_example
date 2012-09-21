@@ -29,7 +29,7 @@ class CustomExamplesController < ApplicationController
     m.a = params['a'].split(',').map(&:to_i) rescue 1
     m.b = params['b'].split(',').map(&:to_i) rescue [1, 2, 3]
     client.tasks.create('DeserializeWorker', :complex_model => m.to_json, :iron_config => Rails.application.config.iron_config.to_json)
-    redirect_to custom_examples_path
+    redirect_to(custom_examples_path + "#deserialize_worker")
   end
 
   def deserialize_worker_results

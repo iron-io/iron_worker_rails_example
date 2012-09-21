@@ -43,7 +43,7 @@ This worker show how to pass and parse different data types to worker
       <%= submit_tag("Send to worker!", :class => 'controls btn btn-primary') %>
     </div>
 <% end %>
-<h3>Deserialize Worker</h3>
+<h3 id="deserialize_worker">Deserialize Worker</h3>
 This is simple worker that create new custom object, send it to worker and recieve it back with processed data
 <div>
   <%= form_tag(deserialize_worker_custom_examples_path, :class => 'form-inline') do %>
@@ -54,7 +54,7 @@ This is simple worker that create new custom object, send it to worker and recie
       <%= submit_tag("Process values!", :class => 'btn btn-primary') %>
   <% end %>
   <% if !@deserialize_tasks.empty? %>
-      <table class="table table-bordered table-hover table-condensed">
+      <table id="task_list_table" class="table table-bordered table-hover table-condensed">
         <thead>
         <tr>
           <th>Code Name</th>
@@ -66,12 +66,19 @@ This is simple worker that create new custom object, send it to worker and recie
         </thead>
 
         <% @deserialize_tasks.each do |t| %>
-            <tr>
+            <tr data-task-id='<%= t.id %>' data-status="<%= t.status %>">
               <td><%= t.code_name %></td>
-              <td><%= t.created_at %></td>
-              <td><%= t.status %></td>
-              <td><%= t.duration %></td>
-              <td><%= link_to("Results", deserialize_worker_results_custom_examples_path(:id=>t.id)) if t.status=='complete' %></td>
+              <td><span class="created_at"><%= t.created_at %></span></td>
+              <td><span class="status"><%= t.status %></span></td>
+              <td><span class="duration"><%= t.duration %></span></td>
+              <td>
+                <div class="results_link" style="display:<%= (t.status=='complete'||t.status=='error') ? "block" : "none" %>;">
+                  <%= link_to("Results", deserialize_worker_results_custom_examples_path(:id => t.id)) %>
+                </div>
+                <div class="spinner" style="display:<%= (t.status=='runnint'||t.status=='queued') ? "block" : "none" %>;">
+                  <%= image_tag 'ajax-loader.gif', class: 'task-spinner' %>
+                </div>
+              </td>
         <% end %>
       </table>
   <% else %>

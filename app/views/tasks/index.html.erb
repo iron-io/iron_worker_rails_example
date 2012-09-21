@@ -26,7 +26,7 @@
 
 <h3>List of tasks:</h3>
 <% if !@tasks.empty? %>
-    <table class="table table-bordered table-hover table-condensed">
+    <table id="task_list_table" class="table table-bordered table-hover table-condensed">
       <thead>
       <tr>
         <th>Code Name</th>
@@ -39,16 +39,24 @@
       </thead>
 
       <% @tasks.each do |t| %>
-          <tr>
+          <tr data-task-id='<%= t.id %>' data-status="<%= t.status %>">
             <td><%= t.code_name %></td>
-            <td><%= t.created_at %></td>
-            <td><%= t.status %></td>
-            <td><%= t.duration %></td>
-            <td><%= link_to "Log", log_task_path(t.id) %></td>
+            <td><span class="created_at"><%= t.created_at %></span></td>
+            <td><span class="status"><%= t.status %></span></td>
+            <td><span class="duration"><%= t.duration %></span></td>
+            <td>
+              <div class="spinner" style="display:<%= (t.status=='runnint'||t.status=='queued') ? "block" : "none" %>;">
+                <%= image_tag 'ajax-loader.gif', class: 'task-spinner' %>
+              </div>
+              <div class="results_link" style="display:<%= (t.status=='complete'||t.status=='error'||t.status=='timeout') ? "block" : "none" %>;">
+                <%= link_to "Log", log_task_path(t.id) %>
+              </div>
+            </td>
             <td>
               <%= button_to "Retry", retry_task_task_path(t.id) %>
               <%= button_to "Cancel", cancel_task_path(t.id) %>
-              <%= button_to "Cancel all", cancel_all_task_path(t.code_id) %></td>
+              <%= button_to "Cancel all", cancel_all_task_path(t.code_id) %>
+            </td>
           </tr>
       <% end %>
     </table>

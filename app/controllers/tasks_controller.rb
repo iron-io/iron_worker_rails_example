@@ -34,4 +34,14 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def status
+    t = client.tasks.get(params[:id])
+    render json: {
+        :status => t.status,
+        :code_name => t.code_name,
+        :created_at => t.created_at,
+        :duration => t.duration
+    }
+  end
+
 end
