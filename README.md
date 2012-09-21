@@ -7,9 +7,11 @@ This example show how to work with iron_worker under Rails environment
 
 1. Set proper configuration in [config_development.yml](https://github.com/iron-io/iron_worker_rails_example/blob/master/config_development.yml)
 
-2. run 'rails s'
+2. run 'rake iron_worker:upload'
 
-3. Go to http://localhost:3000 and test
+3. run 'rails s'
+
+4. Go to http://localhost:3000 and test
 
 ## FAQ Rails+IronWorker
 1.  Q: Where should you place workers?
