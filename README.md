@@ -30,6 +30,7 @@ This example show how to work with iron_worker under Rails environment
     *    send connection details as parameter [mailer details](https://github.com/iron-io/iron_worker_rails_example/blob/master/app/controllers/custom_examples_controller.rb#L6)
     *    configure mailer in worker - [init_mailer](https://github.com/iron-io/iron_worker_rails_example/blob/master/workers/simple_mailer_worker.rb#L7)
     *    [send email](https://github.com/iron-io/iron_worker_rails_example/blob/master/workers/simple_mailer_worker.rb#L29)
+
 Important note, if you're passing ActionMailer config hash as worker params you need to convert them on worker side to 'valid' hash([example](https://github.com/iron-io/iron_worker_rails_example/blob/master/workers/simple_mailer_worker.rb#L9)).
 
 4.  Q: How do you use Models and/or connect to a database within a worker?
