@@ -5,7 +5,7 @@ This example show how to work with iron_worker under Rails environment
 
 ## Getting Started
 
-1. Set proper configuration in [iron.json](https://github.com/iron-io/iron_worker_rails_example/blob/master/iron.json) and [config_development.yml](https://github.com/iron-io/iron_worker_rails_example/blob/master/config_development.yml)
+1. Set proper configuration in [config_development.yml](https://github.com/iron-io/iron_worker_rails_example/blob/master/config_development.yml)
 
 2. run 'rails s'
 
